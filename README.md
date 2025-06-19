@@ -1,27 +1,27 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 const robots = [
   {
     name: "Ziko",
-    img: "https://i.imgur.com/TWq5Pi0.png", // robo desenho 1
+    img: "https://i.imgur.com/TWq5Pi0.png",
     story: "Ziko é o líder da revolução ZIKA, sempre estrategista e otimista.",
     speech: "Vamos dominar o blockchain juntos!"
   },
   {
     name: "Nova",
-    img: "https://i.imgur.com/pAq0mHL.png", // robo desenho 2
+    img: "https://i.imgur.com/pAq0mHL.png",
     story: "Nova é a especialista em segurança, protegendo suas transações.",
     speech: "Segurança em primeiro lugar!"
   },
   {
     name: "Byte",
-    img: "https://i.imgur.com/M7RZPcR.png", // robo desenho 3
+    img: "https://i.imgur.com/M7RZPcR.png",
     story: "Byte é o programador mestre, garantindo que tudo funcione bem.",
     speech: "Código limpo, swaps rápidos!"
   }
 ];
 
-export default function SwapPage() {
+export default function App() {
   const [fromAmount, setFromAmount] = useState("");
   const [toAmount, setToAmount] = useState("");
   const tokenSymbol = "$ZIKA";
@@ -38,7 +38,20 @@ export default function SwapPage() {
       fontFamily: "'Orbitron', sans-serif",
       padding: "2rem"
     }}>
-      {/* Topo com robôs e balões */}
+      {/* Banner Etherzica */}
+      <div style={{ textAlign: "center", marginBottom: "2rem" }}>
+        <img
+          src="https://i.imgur.com/z7kNd8P.png" // <- Substitua por outro link se quiser
+          alt="Banner Etherzica"
+          style={{
+            maxWidth: "100%",
+            borderRadius: "1rem",
+            boxShadow: "0 0 15px rgba(0,0,0,0.5)"
+          }}
+        />
+      </div>
+
+      {/* Robôs com fala */}
       <div style={{ textAlign: "center", marginBottom: "3rem" }}>
         <h1 style={{ fontSize: "2.5rem", fontWeight: "bold" }}>
           Bem-vindo ao Futuro da Troca Cripto
@@ -47,7 +60,7 @@ export default function SwapPage() {
           Conheça o universo dos robôs ZIKA: uma revolução no blockchain
         </p>
 
-        <div style={{ display: "flex", justifyContent: "center", gap: "2rem", marginTop: "2rem" }}>
+        <div style={{ display: "flex", justifyContent: "center", gap: "2rem", marginTop: "2rem", flexWrap: "wrap" }}>
           {robots.map((robot, i) => (
             <div key={i} style={{ width: "150px", position: "relative" }}>
               <img
@@ -55,7 +68,6 @@ export default function SwapPage() {
                 alt={robot.name}
                 style={{ width: "100%", animation: `float ${3 + i * 0.5}s ease-in-out infinite` }}
               />
-              {/* Balão de fala */}
               <div style={{
                 position: "absolute",
                 top: "-70px",
@@ -72,7 +84,6 @@ export default function SwapPage() {
               }}>
                 {robot.speech}
               </div>
-              {/* Nome e história */}
               <div style={{ marginTop: "0.75rem", fontWeight: "bold", fontSize: "1rem" }}>
                 {robot.name}
               </div>
@@ -82,6 +93,20 @@ export default function SwapPage() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Gráfico do Bitcoin */}
+      <div style={{ maxWidth: "1000px", margin: "0 auto 3rem", background: "#1e293b", padding: "1rem", borderRadius: "1rem" }}>
+        <h2 style={{ textAlign: "center", fontSize: "1.5rem", marginBottom: "1rem" }}>
+          Gráfico do Bitcoin (BTC) em Tempo Real
+        </h2>
+        <iframe
+          src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_d2493&symbol=BINANCE:BTCUSDT&interval=1&theme=dark&style=1&timezone=America%2FSao_Paulo"
+          width="100%"
+          height="400"
+          style={{ border: "none", borderRadius: "1rem" }}
+          allowFullScreen
+        ></iframe>
       </div>
 
       {/* Swap */}
@@ -155,38 +180,7 @@ export default function SwapPage() {
         </div>
       </div>
 
-      {/* Seção Sobre */}
-      <div style={{ maxWidth: "800px", margin: "4rem auto 2rem", textAlign: "center" }}>
-        <h2 style={{ fontSize: "2rem", marginBottom: "1rem" }}>Sobre o $ZIKA</h2>
-        <p style={{ fontSize: "1rem", lineHeight: "1.6" }}>
-          $ZIKA é mais do que uma moeda, é o combustível de um universo controlado por robôs animados com inteligência artificial.
-          Com um supply programado e taxa justa, ela é ideal para quem busca memes com tecnologia.
-        </p>
-      </div>
-
-      {/* Seção Roadmap */}
-      <div style={{ maxWidth: "800px", margin: "2rem auto", textAlign: "center" }}>
-        <h2 style={{ fontSize: "2rem", marginBottom: "1rem" }}>Roadmap</h2>
-        <ul style={{ listStyle: "none", padding: 0, fontSize: "1rem" }}>
-          <li>🚀 Lançamento do token $ZIKA</li>
-          <li>🤖 Lançamento do site com robôs animados</li>
-          <li>🛠️ Listagem no Dexscreener e Raydium</li>
-          <li>🌍 Campanha global com memes e shillers</li>
-          <li>🎮 Integração com jogos e NFTs dos robôs</li>
-        </ul>
-      </div>
-
-      {/* Seção Como Comprar */}
-      <div style={{ maxWidth: "800px", margin: "2rem auto 4rem", textAlign: "center" }}>
-        <h2 style={{ fontSize: "2rem", marginBottom: "1rem" }}>Como Comprar</h2>
-        <p>
-          1. Conecte sua carteira Phantom<br />
-          2. Vá até Raydium e procure por $ZIKA<br />
-          3. Faça swap com SOL<br />
-          4. Pronto! Agora você é um ZIKA holder 😎
-        </p>
-      </div>
-
+      {/* Animações CSS */}
       <style>
         {`
           @keyframes float {
